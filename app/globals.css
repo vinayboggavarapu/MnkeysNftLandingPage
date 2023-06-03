@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  table.timer tbody tr th {
+    @apply border bg-black text-white text-center text-4xl p-4;
+  }
+  .timer {
+    @apply w-1/4 mx-auto;
+  }
+  .timer tbody td {
+    @apply text-center text-base;
+  }
+}
