@@ -1,4 +1,3 @@
-"use client";
 import React, { useContext, useState } from "react";
 import Timers from "../Timers";
 import GlobalState from "@/context/globalStates";
@@ -34,21 +33,25 @@ const Mint = () => {
         id="Mint"
         className="flex flex-col md:flex-row w-4/5 mx-auto md:mx-0 md:self-end mt-28"
       >
-        <form className="flex flex-col w-full justify-around">
+        <form className="flex gap-6 flex-col w-full justify-around">
           <h3 className="text-3xl">
             Get Yourself a Mnkey before the timer runs out
           </h3>
-          <h3 className="text-sm text-rose-600">*Note : only one per wallet</h3>
+          <h3 className="text-[0.9rem] text-gray-600 font-semibold">
+            Note : only one per wallet
+          </h3>
           <label>Choose Your NFT</label>
           <select
             className="w-1/2"
             onChange={(val) => {
-              if (val.target.value !== "") {
+              if (val.target.value !== "none") {
                 setSelected("/" + val.target.value + ".png");
+              } else {
+                setSelected("none");
               }
             }}
           >
-            <option value="">No selected</option>
+            <option value="none">Not selected</option>
             {mnkeyNFT.map((e) => {
               return (
                 <option value={e} key={e} className="focus:bg-green-200">
@@ -61,11 +64,13 @@ const Mint = () => {
             Free Mint
           </button>
         </form>
-        <div className=" w-full">
+        <div className="flex items-center w-full">
           <div
-            className={`${selected ? "bg-yellow-300" : ""} rounded-full w-2/4`}
+            className={`${selected ? "bg-yellow-300" : ""}  rounded-full w-2/4`}
           >
-            {selected !== "" ? (
+            {selected == "none" || selected == "" ? (
+              <div className="w-2/2 h-60 hidden">Hi</div>
+            ) : (
               <Image
                 src={selected}
                 className="w-2/2 h-60"
@@ -73,8 +78,6 @@ const Mint = () => {
                 height={300}
                 alt="Mnkey Nft Minting"
               />
-            ) : (
-              <div className="w-2/2 h-60"></div>
             )}
           </div>
         </div>
