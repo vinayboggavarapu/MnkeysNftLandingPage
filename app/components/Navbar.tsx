@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 type Scroll = {
   id: string;
@@ -65,11 +66,7 @@ const Navbar = () => {
             Faq
           </h2>
         </section>
-        <div className="group border-2 border-black h-fit overflow-hidden rounded-lg">
-          <button className="bg-black text-white p-3 rounded-md lg:hover:scale-90 lg:group:hover:shadow-md transition-all ease-in-out">
-            Connect Wallet
-          </button>
-        </div>
+        <ConnectButton showBalance={false} />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import GlobalState from "@/context/globalStates";
 import React, { useContext, useEffect, useState } from "react";
 
 const Timers = () => {
-  const target = new Date("Thu Jun 08 2023 11:32:37").getTime();
+  const target = new Date("Thu Nov 08 2023 11:32:37").getTime();
   const [current, setCurrent] = useState(new Date().getTime());
 
   const timeLeft = target - current;

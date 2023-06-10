@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { HiOutlineMinus } from "react-icons/hi";
@@ -22,13 +23,48 @@ export const FaqTemplate = ({ title, description }: Data) => {
         }}
       >
         <h2 className="w-full">{title}</h2>
-        {click ? <HiOutlineMinus /> : <AiOutlinePlus />}
+        <AnimatePresence>
+          {click && (
+            <motion.div
+              key={"minus"}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <HiOutlineMinus />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {!click && (
+            <motion.div
+              key={"plus"}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ ease: "easeInOut" }}
+              exit={{ opacity: 0 }}
+            >
+              <AiOutlinePlus />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-      {click && (
-        <p className="w-[78%] text-gray-200 font-light mt-3 mx-auto">
-          {description}
-        </p>
-      )}
+      <AnimatePresence>
+        {click && (
+          <motion.p
+            key={title.slice(0, 4)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ease: "easeInOut",
+              duration: 0.5,
+            }}
+            className="w-[78%] text-gray-200 font-light mt-3 mx-auto"
+          >
+            {description}
+          </motion.p>
+        )}
+      </AnimatePresence>
       <hr className="mt-3 mx-auto w-[80%]"></hr>
     </div>
   );

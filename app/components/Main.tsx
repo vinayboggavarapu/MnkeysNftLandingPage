@@ -13,7 +13,6 @@ const Main = () => {
     <div id="home" className="relative">
       <Hero />
       <About />
-      <Showcase />
       <Roadmap />
       <ScrollTop />
       <Mint />
