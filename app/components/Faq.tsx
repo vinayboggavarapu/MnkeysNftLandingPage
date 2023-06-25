@@ -27,9 +27,10 @@ export const FaqTemplate = ({ title, description }: Data) => {
           {click && (
             <motion.div
               key={"minus"}
+              className="overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              // exit={{ opacity: 0 }}
             >
               <HiOutlineMinus />
             </motion.div>
@@ -39,10 +40,11 @@ export const FaqTemplate = ({ title, description }: Data) => {
           {!click && (
             <motion.div
               key={"plus"}
+              className="overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ ease: "easeInOut" }}
-              exit={{ opacity: 0 }}
+              // exit={{ opacity: 0 }}
             >
               <AiOutlinePlus />
             </motion.div>

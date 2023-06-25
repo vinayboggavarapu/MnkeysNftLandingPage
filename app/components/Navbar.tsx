@@ -27,7 +27,7 @@ const Navbar = () => {
       "
       >
         <h2 className="text-2xl font-mono font-bold">Mnkeys.</h2>
-        <section className="hidden md:flex w-2/6 justify-around ">
+        <section className="hidden md:flex gap-2 w-2/6 justify-around ">
           <h2
             onClick={() => scrollToView({ id: "Home" })}
             className="cursor-pointer"

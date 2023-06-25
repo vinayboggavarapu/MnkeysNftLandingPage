@@ -26,12 +26,12 @@ const Mint = () => {
   // console.log(timer);
   const [selected, setSelected] = useState("");
   return (
-    <section className="h-screen max-w-7xl w-full mx-auto flex flex-col gap-6 mt-8 overflow-hidden">
-      <h2 className="text-3xl text-center">Countdown</h2>
+    <section className="min-h-screen max-w-7xl w-full mx-auto flex flex-col gap-6 mt-8 overflow-hidden">
+      <h2 className="text-3xl mt-10 text-center">Countdown</h2>
       <Timers />
       <div
         id="Mint"
-        className="flex flex-col md:flex-row w-4/5 mx-auto md:mx-0 md:self-end mt-28"
+        className="flex flex-col md:flex-row w-4/5 mx-auto md:mx-0 lg:self-end md:self-center mt-28"
       >
         <form className="flex gap-6 flex-col w-full justify-around">
           <h3 className="text-3xl">
@@ -66,14 +66,16 @@ const Mint = () => {
         </form>
         <div className="flex items-center w-full">
           <div
-            className={`${selected ? "bg-yellow-300" : ""}  rounded-full w-2/4`}
+            className={`${
+              selected ? "bg-yellow-300" : ""
+            }  rounded-full w-3/4 mx-auto lg:mx-0 lg:w-2/4`}
           >
             {selected == "none" || selected == "" ? (
-              <div className="w-2/2 h-60 hidden">Hi</div>
+              <div className="w-full lg:w-2/2 h-60 hidden">Not selected</div>
             ) : (
               <Image
                 src={selected}
-                className="w-2/2 h-60"
+                className="w-full lg:w-2/2 h-full"
                 width={300}
                 height={300}
                 alt="Mnkey Nft Minting"
